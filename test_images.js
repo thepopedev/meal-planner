@@ -1,0 +1,16 @@
+import https from 'https';
+
+const ids = [
+  '1512621776951-a57141f2eefd', '1467003909585-2f8a72700288', '1546069901-ba9599a7e63c',
+  '1547592166-23ac45744acd', '1623065422900-05904d8fb485', '1544145945-f90425340c7e',
+  '1490645935967-10de6ba17061', '1548943487-a2e4e43b4850', '1505253716362-afaea1d3d1af',
+  '1511690656952-34342bb7c2f2', '1517673132405-a56a62b18caf', '1432139509613-5c4255815697',
+  '1599084942896-673ec90d05c0', '1524182576066-1abdcda27c9a', '1502741224143-9038bc323ce7',
+  '1498804103079-a6351b050096'
+];
+
+ids.forEach(id => {
+  https.request(`https://images.unsplash.com/photo-${id}?q=80&w=800&auto=format&fit=crop`, {method: 'HEAD'}, res => {
+    console.log(id, res.statusCode);
+  }).end();
+});
